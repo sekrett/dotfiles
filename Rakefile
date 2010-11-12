@@ -6,14 +6,14 @@ task :install do
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.rdoc LICENSE].include? file
-    
-    if File.exist?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-      if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-        puts "identical ~/.#{file.sub('.erb', '')}"
+    target_file=".#{file.sub('.erb', '')}"
+    if File.exist?(File.join(ENV['HOME'], target_file)
+      if File.identical? file, File.join(ENV['HOME'], target_file)
+        puts "identical ~/.#{target_file}"
       elsif replace_all
         replace_file(file)
       else
-        print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
+        print "overwrite ~/#{target_file}"
         case $stdin.gets.chomp
         when 'a'
           replace_all = true
@@ -23,7 +23,7 @@ task :install do
         when 'q'
           exit
         else
-          puts "skipping ~/.#{file.sub('.erb', '')}"
+          puts "skipping ~/#{target_file}"
         end
       end
     else
