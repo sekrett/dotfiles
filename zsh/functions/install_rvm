@@ -1,0 +1,2 @@
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-latest )
+source "$HOME/.rvm/scripts/rvm"
