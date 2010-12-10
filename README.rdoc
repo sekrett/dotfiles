@@ -1,31 +1,42 @@
-= Ryan Bates Dot Files
+= Alexander Zubkov Dot Files
 
-These are config files to set up a system the way I like it.
+This is a fork from Ryan Bates's dotfiles. I removed bash. vim, added
+aliases for Rails 3, changed zsh config a bit, added RVM and more.
 
 
 == Installation
 
-  git clone git://github.com/ryanb/dotfiles ~/.dotfiles
+  git clone git://github.com/sekrett/dotfiles ~/.dotfiles
   cd ~/.dotfiles
   rake install
 
 
 == Environment
 
-I am running on Mac OS X, but it will likely work on Linux as well with 
-minor fiddling. I primarily use zsh, but this includes some older bash 
-files as well. If you would like to switch to zsh, you can do so with 
-the following command.
+I am running on FreeBSD, but it will likely work on Mac OS X and Linux as
+well with minor fiddling. I primarily use zsh, so you should switch to zsh
+with the following command.
 
-  chsh -s /bin/zsh
+  chsh -s /usr/local/bin/zsh
+
+
+== RVM
+To install RVM just type:
+
+  install_rvm
+
+No need to reload shell, it's loaded automatically after installation.
 
 
 == Features
 
-I normally place all of my coding projects in ~/code, so this directory 
-can easily be accessed (and tab completed) with the "c" command.
+I normally place all of my coding projects in ~/workspace or ~/rails, so
+these directories can easily be accessed (and tab completed) with the "w"
+and "r" commands.
 
-  c railsca<tab>
+  w railsca<tab>
+  r railsca<tab>
+
 
 There is also an "h" command which behaves similar, but acts on the 
 home path.
@@ -50,23 +61,27 @@ Mac OS X Terminal.
 If you're using git, you'll notice the current branch name shows up in
 the prompt while in a git repository.
 
-If you're using Rails, you'll find some handy aliases (below). You can 
+If you're using Rails 3, you'll find some handy aliases (below). You can 
 also use show_log and hide_log in script/console to show the log inline.
   
-  ss       # script/server
-  sc       # script/console
-  sg       # script/generate
+  rn       # rails new
+  rs       # rails s
+  rg       # rails g
+  rgs      # rails g nifty:scaffold
+  rc       # rails c
+  rp       # rails plugin
+  rpi      # rails plugin install
+  
   a        # autotest
   tlog     # tail -f log/development.log
   rst      # touch tmp/restart.txt
-  migrate  # rake db:migrate db:test:clone
-  scaffold # script/generate nifty_scaffold
+  migrate  # rake db:migrate
 
 See the other aliases in ~/.zsh/aliases
 
 If there are some shell configuration settings which you want secure or 
-specific to one system, place it into a ~/.localrc file. This will be 
-loaded automatically if it exists.
+specific to one system, place it into a ~/.localrc or ~/.profile file.
+This will be loaded automatically if it exists.
 
 There are several features enabled in Ruby's irb including history and 
 completion. Many convenience methods are added as well such as "ri"
