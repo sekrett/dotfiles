@@ -25,7 +25,11 @@ alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
 alias a='autotest -rails'
-alias tlog='tail -f log/development.log'
+if [ $RAILS_ENV = 'production' ]; then
+  alias tlog='tail -f log/production.log'
+else
+  alias tlog='tail -f log/development.log'
+fi
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate'
 alias rst='touch tmp/restart.txt'
