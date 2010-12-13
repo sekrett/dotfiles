@@ -1,0 +1,1 @@
+ssh-keygen -t rsa -C "deploy@$2" -f $1 -q -N '' $*[3,-1]
