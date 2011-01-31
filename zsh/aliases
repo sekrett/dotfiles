@@ -7,7 +7,7 @@ alias l="ls -lAh"
 alias ll="ls -l"
 alias la='ls -A'
 
-rsync='rsync --partial --progress'
+alias rsync='rsync --partial --progress'
 
 # git
 alias gl='git pull'
