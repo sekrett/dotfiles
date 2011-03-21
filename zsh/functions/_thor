@@ -1,0 +1,8 @@
+#compdef thor
+if [ -f Rakefile ]; then
+  recent=`last_modified .thor_tasks~ **/*.thor`
+  if [[ $recent != '.thor_tasks~' ]]; then
+    thor list | grep thor | cut -d " " -f 2 > .thor_tasks~
+  fi
+  compadd `cat .thor_tasks~`
+fi
