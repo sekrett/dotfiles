@@ -46,7 +46,11 @@ alias rp='rails plugin'
 alias rpi='rails plugin install'
 
 # bundler primary commands
-alias bi='bundle install'
+if [ "$RAILS_ENV" = 'production' ]; then
+  alias bi='bundle install --without development test'
+else
+  alias bi='bundle install'
+fi
 alias bu='bundle update'
 alias bp='bundle package'
 alias be='bundle exec'
