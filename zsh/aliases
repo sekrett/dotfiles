@@ -34,8 +34,9 @@ else
   alias tlog='tail -f log/development.log'
 fi
 alias scaffold='script/generate nifty_scaffold'
-alias migrate='rake db:migrate'
+alias migrate='bundle exec rake db:migrate'
 alias rst='touch tmp/restart.txt'
+alias rake='bundle exec rake'
 
 # rails 3.0
 alias rn='rails new'
