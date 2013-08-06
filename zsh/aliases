@@ -23,17 +23,13 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias changelog='git log `git log -1 --format=%H -- CHANGELOG*`..; cat CHANGELOG*'
 
 # rails
-alias sc='script/console'
-alias ss='script/server'
 alias sun='script/unicorn'
-alias sg='script/generate'
 alias a='autotest -rails'
 if [ "$RAILS_ENV" = 'production' ]; then
   alias tlog='tail -f log/production.log'
 else
   alias tlog='tail -f log/development.log'
 fi
-alias scaffold='script/generate nifty_scaffold'
 alias migrate='bundle exec rake db:migrate'
 alias rst='touch tmp/restart.txt'
 alias rake='bundle exec rake'
@@ -46,6 +42,9 @@ alias rgs='rails generate nifty:scaffold'
 alias rc='rails console'
 alias rp='rails plugin'
 alias rpi='rails plugin install'
+
+# rails 4.0
+alias bun='bin/unicorn'
 
 # bundler primary commands
 if [ "$RAILS_ENV" = 'production' ]; then
